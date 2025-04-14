@@ -7,6 +7,7 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 export TRITON_PRINT_AUTOTUNING=1
 
 export ROOT_DIR=./
+export RUN_NAME=...
 
 deepspeed --include localhost:0,1,2,3 --master_port 6022 --module tevatron.llm_retriever.driver.train \
   --deepspeed $ROOT_DIR/deepspeed/ds_zero3_config.json \
@@ -37,4 +38,4 @@ deepspeed --include localhost:0,1,2,3 --master_port 6022 --module tevatron.llm_r
   --warmup_steps 100 \
   --resume latest \
   --top_k 16 \
-  --run_name factoid_bm25_test_passage_query_prefix_first_half_chunk_sent_steps_32_smollm2_135m_rank_64
+  --run_name $RUN_NAME
