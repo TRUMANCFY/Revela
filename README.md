@@ -46,14 +46,17 @@ pip install -e .
 ```
 
 <h2 id="resource">Resource</h2>
+
 ### Data
 
 ### Models
-| Model Name | Base Model    |  Training Corpus |Link   ｜
-|------------|-------------------｜----------------|
-| Revela-1b  | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B) | Wikipedia | [Revela-1b](https://huggingface.co/trumancai/Revela-1b) |
-| Revela-500m  | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B) | Wikipedia | [Revela-500m](https://huggingface.co/trumancai/Revela-500M) |
-| Revela-135m  | [HuggingFaceTB/SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) | Wikipedia |[Revela-135m](https://huggingface.co/trumancai/Revela-135M) |
+
+| Model Name    | Base Model                                                                 | Training Corpus | Link                                                   |
+|---------------|----------------------------------------------------------------------------|------------------|--------------------------------------------------------|
+| Revela-1b     | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)   | Wikipedia        | [Revela-1b](https://huggingface.co/trumancai/Revela-1b)     |
+| Revela-500m   | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | Wikipedia        | [Revela-500m](https://huggingface.co/trumancai/Revela-500M) |
+| Revela-135m   | [HuggingFaceTB/SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) | Wikipedia    | [Revela-135m](https://huggingface.co/trumancai/Revela-135M) |
+
 
 
 
