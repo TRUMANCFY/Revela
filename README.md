@@ -23,8 +23,21 @@ We evaluate $\texttt{Revela}$ on both general-domain (BEIR) and domain-specific 
 With comparable parameter scales, it outperforms REPLUG by relative margins of 18.3\% and 14.4\%, respectively.
 Performance scales with model size, demonstrating the effectiveness and scalability of our approach and underscoring its potential as a promising solution for self-supervised retriever learning.
 
-
 <h2 id="installation">Installation</h2>
+
+We need to set up a conda environment with the following command:
+
+```
+conda env create -f environment.yml
+```
+
+Specifically, in $\texttt$, we adapt **in-batch** attention within the transformers architecture. Therefore, we need to install the customized transformers:
+
+```
+pip uninstall transformers
+pip install git+https://github.com/TRUMANCFY/transformers.git@adapt
+```
+
 
 <h2 id="training">Training</h2>
 
