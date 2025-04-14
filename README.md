@@ -49,6 +49,13 @@ pip install -e .
 
 ### Data
 
+
+| Dataset                    | Source                                                                                                                                                              | Number of Batches | Batch Size |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|------------|
+| Revela Training Corpus     | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)                                                                                           | 320,000           | 16         |
+| Revela Code Training Corpus| [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts), [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials), [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation) | 358,763           | 16         |
+
+
 ### Models
 
 | Model Name    | Base Model                                                                 | Training Source | Link                                                   |
@@ -57,21 +64,23 @@ pip install -e .
 | Revela-500m   | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)        | [Revela-500m](https://huggingface.co/trumancai/Revela-500M) |
 | Revela-135m   | [HuggingFaceTB/SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)    | [Revela-135m](https://huggingface.co/trumancai/Revela-135M) |
 | Revela-code-1b     | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)   | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        | [Revela-code-1b](https://huggingface.co/trumancai/Revela-1b)     |
-| Revela-code-500m   | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts)[https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts] + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        | [Revela-code-500m](https://huggingface.co/trumancai/Revela-500M) |
+| Revela-code-500m   | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        | [Revela-code-500m](https://huggingface.co/trumancai/Revela-500M) |
 | Revela-code-135m   | [HuggingFaceTB/SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)    | [Revela-code-135m](https://huggingface.co/trumancai/Revela-code-135M) |
 
 
 <h2 id="training">Training</h2>
 
+
+
 <h2 id="eval">Evaluation</h2>
 
 <p align="center">
-  <img src="assets/beir.png" alt="Revela Architecture" width="600"/>
+  <img src="assets/beir.png" alt="Revela Architecture" width="700"/>
 </p>
 
 
 <p align="center">
-  <img src="assets/coir.png" alt="Revela Architecture" width="600"/>
+  <img src="assets/coir.png" alt="Revela Architecture" width="700"/>
 </p>
 
 
