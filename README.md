@@ -69,7 +69,7 @@ pip install -e .
 
 
 <h2 id="training">Training</h2>
-The training script can be found at `train.sh under DeepSpeed training framework.
+The training script can be found at `train.sh` under DeepSpeed training framework.
 
 
 ```
