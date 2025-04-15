@@ -45,15 +45,15 @@ cd src/tevatron
 pip install -e .
 ```
 
-<h2 id="resource">Resource</h2>
+<h2 id="resources">Resources</h2>
 
 ### Data
 
 
 | Dataset                    | Source                                                                                                                                                              | Number of Batches | Batch Size |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|------------|
-| Revela Training Corpus     | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)                                                                                           | 320,000           | 16         |
-| Revela Code Training Corpus| [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts), [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials), [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation) | 358,763           | 16         |
+| [Revela Training Corpus](https://huggingface.co/datasets/trumancai/revela_training_corpus)     | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)                                                                                           | 320,000           | 16         |
+| [Revela Code Training Corpus](https://huggingface.co/datasets/trumancai/revela_code_training_corpus) | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts), [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials), [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation) | 358,763           | 16         |
 
 
 ### Models
