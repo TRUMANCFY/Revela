@@ -7,17 +7,18 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 export TRITON_PRINT_AUTOTUNING=1
 
 export ROOT_DIR=./
+export OUTPUT_DIR=...
 export RUN_NAME=...
 
 deepspeed --include localhost:0,1,2,3 --master_port 6022 --module tevatron.llm_retriever.driver.train \
   --deepspeed $ROOT_DIR/deepspeed/ds_zero3_config.json \
-  --output_dir $ROOT_DIR/repllama-llama32-1b-test-passage-query-prefix-first-half-chunk-sent-steps-32 \
+  --output_dir $OUTPUT_DIR \
   --model_name_or_path meta-llama/Llama-3.2-1B \
   --lora \
   --lora_r 256 \
   --lora_target_modules q_proj,k_proj,v_proj,o_proj,down_proj,up_proj,gate_proj \
   --save_steps 500 \
-  --bm25_retrieval_file $ROOT_DIR/data/tevatron_wiki_chunk_sent_320000.jsonl \
+  --bm25_retrieval_file $DATA_PATH \
   --add_passage_prefix True \
   --add_query_prefix True \
   --first_half True \

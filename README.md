@@ -69,18 +69,84 @@ pip install -e .
 
 
 <h2 id="training">Training</h2>
+The training script can be found at `train.sh under DeepSpeed training framework.
 
 
+```
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export TRITON_PRINT_AUTOTUNING=1
+
+export ROOT_DIR=./
+export OUTPUT_DIR=...
+export RUN_NAME=...
+
+deepspeed --include localhost:0,1,2,3 --master_port 6022 --module tevatron.llm_retriever.driver.train \
+  --deepspeed $ROOT_DIR/deepspeed/ds_zero3_config.json \
+  --output_dir $OUTPUT_DIR \
+  --model_name_or_path meta-llama/Llama-3.2-1B \
+  --lora \
+  --lora_r 256 \
+  --lora_target_modules q_proj,k_proj,v_proj,o_proj,down_proj,up_proj,gate_proj \
+  --save_steps 500 \
+  --bm25_retrieval_file $DATA_PATH \
+  --add_passage_prefix True \
+  --add_query_prefix True \
+  --first_half True \
+  --bf16 \
+  --pooling eos \
+  --append_eos_token \
+  --normalize \
+  --temperature 0.01 \
+  --attn_temperature 0.0001 \
+  --per_device_train_batch_size 1 \
+  --train_group_size 16 \
+  --learning_rate 1e-4 \
+  --passage_max_len 157 \
+  --num_train_epochs 1 \
+  --gradient_accumulation_steps 8 \
+  --logging_steps 1 \
+  --overwrite_output_dir \
+  --warmup_steps 100 \
+  --resume latest \
+  --top_k 16 \
+  --run_name $RUN_NAME
+```
 
 <h2 id="eval">Evaluation</h2>
 
+We can evaluate the trained models with customized `mteb`.
+
+```
+from mteb.model_meta import ModelMeta
+from mteb.models.repllama_models import RepLLaMAWrapper, _loader
+
+revela_llama_1b = ModelMeta(
+    loader=_loader(
+        RepLLaMAWrapper,
+        base_model_name_or_path="meta-llama/Llama-3.2-1B",
+        peft_model_name_or_path="trumancai/Revela-1b",
+        device_map="auto",
+        torch_dtype=torch.bfloat16,
+    ),
+    name="trumancai/Revela-1b",
+    languages=["eng_Latn"],
+    open_source=True,
+    revision="41a2bd8968d2640e1e386861776c48bdaac1306a",  # base-peft revision
+    release_date="2024-09-15",
+)
+revela_llama_1b_model = revela_llama_1b.loader()
+
+evaluation = mteb.MTEB(tasks=["SciFact", "NFCorpus"])
+evaluation.run(model=revela_llama_1b_model, output_folder="results/Revela-1b")
+```
+
 <p align="center">
-  <img src="assets/beir.png" alt="Revela Architecture" width="700"/>
+  <img src="assets/beir.png" alt="" width="700"/>
 </p>
 
 
 <p align="center">
-  <img src="assets/coir.png" alt="Revela Architecture" width="700"/>
+  <img src="assets/coir.png" alt="" width="700"/>
 </p>
 
 
