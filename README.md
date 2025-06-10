@@ -11,6 +11,10 @@
     </p>
 </h4>
 
+<strong>TL;DR: Self-supervised retriever learning is achieved by framing retrieval as next-token prediction, using retrieval-weighted in-batch attention within the language modeling objective.
+</strong>
+
+
 > **Abstract:**
 >
 > Dense retrievers play a vital role in accessing external and specialized knowledge to augment language models (LMs).
