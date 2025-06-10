@@ -1,4 +1,4 @@
-<h1 align="center">Revela: Dense Retriever Learning via Self-supervised LM Training</h1>
+<h1 align="center">Revela: Dense Retriever Learning via Language Modeling</h1>
 
 <h4 align="center">
     <p>
@@ -13,15 +13,18 @@
 
 > **Abstract:**
 >
-> Retrievers, represented by dense retrievers, play a vital role in accessing external and specialized knowledge to augment LMs.
-Training dense retrievers typically requires annotated query-document pairs, which are costly and hard to scale—motivating growing interest in self-supervised solutions. However, current self-supervised approaches—such as contrastive learning, masked autoencoding, and LM-based distillation—suffer from key limitations, including oversimplified assumptions, lack of explicit negatives, or reliance on frozen LMs.
+> Dense retrievers play a vital role in accessing external and specialized knowledge to augment language models (LMs).
+Training dense retrievers typically requires annotated query-document pairs, which are costly and hard to obtain in special domains, like code—motivating growing interest in self-supervised retriever learning.
+Since LMs are trained to capture token-level dependencies through a *self-supervised* learning objective (i.e., next token prediction), we can analogously cast retrieval as learning dependencies among chunks of tokens.
+This analogy naturally leads to the question: *How can we adapt self‑supervised learning objectives in the spirit of language modeling to train retrievers?*
 >
-> In this work, we propose <code>Revela</code>, a unified and scalable framework for self-supervised retriever learning via joint retriever-LM training.
-<code>Revela</code> models semantic dependencies among passages by conditioning generation on both local and cross-passage context through a novel in-batch attention mechanism.
+> To answer this question, we introduce <code>Revela</code>, a unified and scalable training framework for self-supervised retriever learning via language modeling.
+<code>Revela</code> models semantic dependencies among documents by conditioning next token prediction on both local and cross-document context through an *in-batch attention* mechanism.
 This attention is weighted by retriever-computed similarity scores, enabling the retriever to be optimized as part of language modeling.
 We evaluate <code>Revela</code> on both general-domain (BEIR) and domain-specific (CoIR) benchmarks across various retriever backbones.
-With comparable parameter scales, it outperforms REPLUG by relative margins of 18.3\% and 14.4\%, respectively.
-Performance scales with model size, demonstrating the effectiveness and scalability of our approach and underscoring its potential as a promising solution for self-supervised retriever learning.
+At a comparable parameter scale, <code>Revela</code> outperforms the previous best method
+with absolute improvements of 5.2% (18.3% relatively) and 5.6% (14.4% relatively) on NDCG@10, respectively, underscoring its effectiveness.
+Performance increases with model size, highlighting both the scalability of our approach and its promise for self‑supervised retriever learning.
 
 <h2 id="installation">Installation</h2>
 
