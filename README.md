@@ -11,7 +11,7 @@
     </p>
 </h4>
 
-<strong>TL;DR: Self-supervised retriever learning is achieved by framing retrieval as next-token prediction, using retrieval-weighted in-batch attention within the language modeling objective.
+<strong>TL;DR: Self-supervised retriever learning is framed as next-token prediction with retrieval-weighted in-batch attention. Trained only on raw text, the method delivers strong performance on code, reasoning-intensive, and general-domain retrieval.
 </strong>
 
 
