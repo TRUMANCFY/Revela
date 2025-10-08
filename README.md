@@ -2,7 +2,7 @@
 
 <h4 align="center">
     <p>
-        <a href="">📑 Paper</a> |
+        <a href="">📑 [Paper](https://www.arxiv.org/abs/2506.16552)</a> |
         <a href="#installation">🔧 Installation</a> |
         <a href="#resources">📚 Resources</a> |
         <a href="#training">🚀 Training</a> |
@@ -17,18 +17,20 @@
 
 > **Abstract:**
 >
-> Dense retrievers play a vital role in accessing external and specialized knowledge to augment language models (LMs).
-Training dense retrievers typically requires annotated query-document pairs, which are costly and hard to obtain in special domains, like code—motivating growing interest in self-supervised retriever learning.
-Since LMs are trained to capture token-level dependencies through a *self-supervised* learning objective (i.e., next token prediction), we can analogously cast retrieval as learning dependencies among chunks of tokens.
-This analogy naturally leads to the question: *How can we adapt self‑supervised learning objectives in the spirit of language modeling to train retrievers?*
+> Dense retrievers play a vital role in accessing external and specialized knowledge to augment language models (LMs).  
+> Training dense retrievers typically requires annotated query-document pairs, which are costly to create and scarce in specialized domains (e.g., code) or in complex settings (e.g., requiring reasoning).  
+> These practical challenges have sparked growing interest in self-supervised retriever learning.  
+> Since LMs are trained to capture token-level dependencies through a *self-supervised* learning objective (i.e., next token prediction), we can analogously cast retrieval as learning dependencies among chunks of tokens.  
+> This analogy naturally leads to the question: *How can we adapt self-supervised learning objectives in the spirit of language modeling to train retrievers?*
 >
-> To answer this question, we introduce <code>Revela</code>, a unified and scalable training framework for self-supervised retriever learning via language modeling.
-<code>Revela</code> models semantic dependencies among documents by conditioning next token prediction on both local and cross-document context through an *in-batch attention* mechanism.
-This attention is weighted by retriever-computed similarity scores, enabling the retriever to be optimized as part of language modeling.
-We evaluate <code>Revela</code> on both general-domain (BEIR) and domain-specific (CoIR) benchmarks across various retriever backbones.
-At a comparable parameter scale, <code>Revela</code> outperforms the previous best method
-with absolute improvements of 5.2% (18.3% relatively) and 5.6% (14.4% relatively) on NDCG@10, respectively, underscoring its effectiveness.
-Performance increases with model size, highlighting both the scalability of our approach and its promise for self‑supervised retriever learning.
+> To answer this question, we introduce <code>Revela</code>, a unified and scalable training framework for self-supervised retriever learning via language modeling.  
+> <code>Revela</code> models semantic dependencies among documents by conditioning next token prediction on local and cross-document context through an *in-batch attention* mechanism.  
+> This attention is weighted by retriever-computed similarity scores, enabling the retriever to be optimized as part of language modeling.  
+> We evaluate <code>Revela</code> on domain-specific (CoIR), reasoning-intensive (BRIGHT), and general-domain (BEIR) benchmarks across various retriever backbones.  
+> Without annotated or synthetic query-document pairs, <code>Revela</code> surpasses larger supervised models and proprietary APIs on CoIR and matches them on BRIGHT.  
+> It achieves BEIR’s unsupervised SoTA with ~1000× less training data and 10× less compute.  
+> Performance increases with batch size and model size, highlighting <code>Revela</code>’s scalability and its promise for self-supervised retriever learning.
+
 
 <h2 id="installation">Installation</h2>
 
@@ -67,12 +69,12 @@ pip install -e .
 
 | Model Name    | Base Model                                                                 | Training Source |
 |---------------|----------------------------------------------------------------------------|------------------|
+| [Revela-3b](https://huggingface.co/trumancai/Revela-3b)     | [meta-llama/Llama-3.2-3B](https://huggingface.co/meta-llama/Llama-3.2-3B)   | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)        | 
 | [Revela-1b](https://huggingface.co/trumancai/Revela-1b)     | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)   | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)        | 
 | [Revela-500m](https://huggingface.co/trumancai/Revela-500M) | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)        |
-|  [Revela-135m](https://huggingface.co/trumancai/Revela-135M) | [HuggingFaceTB/SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) | [Wikipedia](https://huggingface.co/datasets/Tevatron/wikipedia-nq-corpus)    |
-|  [Revela-code-1b](https://huggingface.co/trumancai/Revela-1b)     | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)   | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        |
-| [Revela-code-500m](https://huggingface.co/trumancai/Revela-500M) | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        |
-| [Revela-code-135m](https://huggingface.co/trumancai/Revela-code-135M) | [HuggingFaceTB/SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)    |
+|  [Revela-code-3b](https://huggingface.co/trumancai/Revela-code-3b)     | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-3B)   | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        |
+|  [Revela-code-1b](https://huggingface.co/trumancai/Revela-code-1b)     | [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)   | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        |
+| [Revela-code-500m](https://huggingface.co/trumancai/Revela-code-500M) | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B)               | [Stackoverflow Posts](https://huggingface.co/datasets/code-rag-bench/stackoverflow-posts) + [Online Tutorials](https://huggingface.co/datasets/code-rag-bench/online-tutorials) + [Library Documentation](https://huggingface.co/datasets/code-rag-bench/library-documentation)        |
 
 
 <h2 id="training">Training</h2>
@@ -126,35 +128,49 @@ We can evaluate the trained models with customized `mteb`.
 ```
 from mteb.model_meta import ModelMeta
 from mteb.models.repllama_models import RepLLaMAWrapper, _loader
+import mteb, torch
 
-revela_llama_1b = ModelMeta(
+revela_llama_code_3b = ModelMeta(
     loader=_loader(
         RepLLaMAWrapper,
-        base_model_name_or_path="meta-llama/Llama-3.2-1B",
-        peft_model_name_or_path="trumancai/Revela-1b",
+        base_model_name_or_path="meta-llama/Llama-3.2-3B",
+        peft_model_name_or_path="trumancai/Revela-code-3b",
         device_map="auto",
         torch_dtype=torch.bfloat16,
     ),
-    name="trumancai/Revela-1b",
+    name="trumancai/Revela-code-3b",
     languages=["eng_Latn"],
     open_source=True,
-    revision="41a2bd8968d2640e1e386861776c48bdaac1306a",  # base-peft revision
-    release_date="2024-09-15",
+    revision="974f4d8e7ff5d5439cc1863088948249f612c284",
+    release_date="2025-10-07",
 )
-revela_llama_1b_model = revela_llama_1b.loader()
 
-evaluation = mteb.MTEB(tasks=["SciFact", "NFCorpus"])
-evaluation.run(model=revela_llama_1b_model, output_folder="results/Revela-1b")
+model = revela_llama_code_3b.loader()
+
+mteb.MTEB(tasks=["AppsRetrieval"])
+    .run(model=model, output_folder="results/Revela-code-3b")
 ```
 
-<p align="center">
-  <img src="assets/beir.png" alt="" width="700"/>
-</p>
+<h2 id="training">Results</h2>
 
+<code>Revela</code> achieves robust and impressive results on code retrieval (CoIR), reasoning-intensive retrieval (BRIGHT), and general retrieval (BEIR). Additional results are provided in the [paper](https://www.arxiv.org/abs/2506.16552).
 
 <p align="center">
   <img src="assets/coir.png" alt="" width="700"/>
 </p>
 
 
+<p align="center">
+  <img src="assets/bright_beir.png" alt="" width="700"/>
+</p>
+
+
 <h2 id="citing">Citing</h2>
+```
+@article{cai2025revela,
+  title={Revela: Dense Retriever Learning via Language Modeling},
+  author={Cai, Fengyu and Chen, Tong and Zhao, Xinran and Chen, Sihao and Zhang, Hongming and Wu, Sherry Tongshuang and Gurevych, Iryna and Koeppl, Heinz},
+  journal={arXiv preprint arXiv:2506.16552},
+  year={2025}
+}
+```
