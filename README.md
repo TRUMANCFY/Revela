@@ -2,7 +2,7 @@
 
 <h4 align="center">
     <p>
-        <a href="">📑 [Paper](https://www.arxiv.org/abs/2506.16552)</a> |
+        <a href="https://www.arxiv.org/abs/2506.16552">📑 Paper</a> |
         <a href="#installation">🔧 Installation</a> |
         <a href="#resources">📚 Resources</a> |
         <a href="#training">🚀 Training</a> |
@@ -17,18 +17,18 @@
 
 > **Abstract:**
 >
-> Dense retrievers play a vital role in accessing external and specialized knowledge to augment language models (LMs).  
-> Training dense retrievers typically requires annotated query-document pairs, which are costly to create and scarce in specialized domains (e.g., code) or in complex settings (e.g., requiring reasoning).  
-> These practical challenges have sparked growing interest in self-supervised retriever learning.  
-> Since LMs are trained to capture token-level dependencies through a *self-supervised* learning objective (i.e., next token prediction), we can analogously cast retrieval as learning dependencies among chunks of tokens.  
+> Dense retrievers play a vital role in accessing external and specialized knowledge to augment language models (LMs).
+> Training dense retrievers typically requires annotated query-document pairs, which are costly to create and scarce in specialized domains (e.g., code) or in complex settings (e.g., requiring reasoning).
+> These practical challenges have sparked growing interest in self-supervised retriever learning.
+> Since LMs are trained to capture token-level dependencies through a *self-supervised* learning objective (i.e., next token prediction), we can analogously cast retrieval as learning dependencies among chunks of tokens.
 > This analogy naturally leads to the question: *How can we adapt self-supervised learning objectives in the spirit of language modeling to train retrievers?*
 >
-> To answer this question, we introduce <code>Revela</code>, a unified and scalable training framework for self-supervised retriever learning via language modeling.  
-> <code>Revela</code> models semantic dependencies among documents by conditioning next token prediction on local and cross-document context through an *in-batch attention* mechanism.  
-> This attention is weighted by retriever-computed similarity scores, enabling the retriever to be optimized as part of language modeling.  
-> We evaluate <code>Revela</code> on domain-specific (CoIR), reasoning-intensive (BRIGHT), and general-domain (BEIR) benchmarks across various retriever backbones.  
-> Without annotated or synthetic query-document pairs, <code>Revela</code> surpasses larger supervised models and proprietary APIs on CoIR and matches them on BRIGHT.  
-> It achieves BEIR’s unsupervised SoTA with ~1000× less training data and 10× less compute.  
+> To answer this question, we introduce <code>Revela</code>, a unified and scalable training framework for self-supervised retriever learning via language modeling.
+> <code>Revela</code> models semantic dependencies among documents by conditioning next token prediction on local and cross-document context through an *in-batch attention* mechanism.
+> This attention is weighted by retriever-computed similarity scores, enabling the retriever to be optimized as part of language modeling.
+> We evaluate <code>Revela</code> on domain-specific (CoIR), reasoning-intensive (BRIGHT), and general-domain (BEIR) benchmarks across various retriever backbones.
+> Without annotated or synthetic query-document pairs, <code>Revela</code> surpasses larger supervised models and proprietary APIs on CoIR and matches them on BRIGHT.
+> It achieves BEIR’s unsupervised SoTA with ~1000× less training data and 10× less compute.
 > Performance increases with batch size and model size, highlighting <code>Revela</code>’s scalability and its promise for self-supervised retriever learning.
 
 
@@ -166,11 +166,11 @@ mteb.MTEB(tasks=["AppsRetrieval"])
 
 
 <h2 id="citing">Citing</h2>
-```
+
+```bibtex
 @article{cai2025revela,
   title={Revela: Dense Retriever Learning via Language Modeling},
   author={Cai, Fengyu and Chen, Tong and Zhao, Xinran and Chen, Sihao and Zhang, Hongming and Wu, Sherry Tongshuang and Gurevych, Iryna and Koeppl, Heinz},
   journal={arXiv preprint arXiv:2506.16552},
   year={2025}
 }
-```
