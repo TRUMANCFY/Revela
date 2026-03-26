@@ -168,9 +168,11 @@ mteb.MTEB(tasks=["AppsRetrieval"])
 <h2 id="citing">Citing</h2>
 
 ```bibtex
-@article{cai2025revela,
-  title={Revela: Dense Retriever Learning via Language Modeling},
-  author={Cai, Fengyu and Chen, Tong and Zhao, Xinran and Chen, Sihao and Zhang, Hongming and Wu, Sherry Tongshuang and Gurevych, Iryna and Koeppl, Heinz},
-  journal={arXiv preprint arXiv:2506.16552},
-  year={2025}
+@inproceedings{
+cai2026revela,
+title={Revela: Dense Retriever Learning via Language Modeling},
+author={Fengyu Cai and Tong Chen and Xinran Zhao and Sihao Chen and Hongming Zhang and Tongshuang Wu and Iryna Gurevych and Heinz Koeppl},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=e7pAjJZJWb}
 }
